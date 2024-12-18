@@ -181,14 +181,14 @@ const App = () => {
   // determine the style for each circle by status
   const getCircleStyle = (id) => {
     if (clickedNumbers.includes(id)) {
-      return "border-orange-500 bg-orange-400 text-white"; // khi nhấp
+      return "border-orange-200 bg-orange-400 text-white"; // khi nhấp
     }
-    return "border-gray-800 bg-white text-gray-800"; // khi chưa nhấp
+    return "border-orange-200 bg-white text-gray-800"; // khi chưa nhấp
   };
 
   return (
     <div className="w-full max-w-lg mx-auto p-4 space-y-2">
-      <h1 className={`text-2xl font-bold ${textHeader.color}`}>
+      <h1 className={`text-3xl font-bold ${textHeader.color}`}>
         {textHeader.text}
       </h1>
 
@@ -201,7 +201,7 @@ const App = () => {
           <input
             id="points"
             type="number"
-            className="col-span-2 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className="col-span-3 flex h-10 w-20 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             value={points}
             onChange={(e) => setPoints(Number(e.target.value))}
             min="1"
@@ -217,10 +217,10 @@ const App = () => {
       </div>
 
       {/* buttons control game */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-2 gap-5">
         <button
           onClick={startGame}
-          className="flex-1 rounded-md bg-slate-900 text-white py-3 bg-green-600 disabled:cursor-not-allowed"
+          className="flex-1 rounded-md bg-slate-900 text-white py-3 bg-gray-600 disabled:cursor-not-allowed"
           disabled={points <= 0 || points > 2000}
         >
           {isGameInit ? "Restart" : "Play"}
